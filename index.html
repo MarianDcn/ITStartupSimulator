@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dev Tycoon: Silicon Garage</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="game-container">
+        <header class="game-header">
+            <h1>💻 DEV TYCOON: SILICON GARAGE</h1>
+            <div class="stats-bar">
+                <div>Fonduri Companie: <span id="stat-money">0</span> $</div>
+                <div>Linii de Cod (LOB): <span id="stat-lines">0</span></div>
+                <div>Sediu Curent: <span id="stat-office">Garajul Părinților</span></div>
+            </div>
+        </header>
+
+        <main class="game-main">
+            <section class="panel clicker-panel">
+                <h2>⌨️ Stație de Lucru</h2>
+                <p>Apasă butonul de mai jos pentru a scrie cod manual.</p>
+                <button id="btn-click-code" class="btn-main-action" onclick="clickWriteCode()">👨‍💻 Scrie Cod (+<span id="click-power">1</span> Linii)</button>
+                
+                <div class="auto-income-display">
+                    Venit pasiv: <span id="stat-income">0</span> $ / secundă
+                </div>
+            </section>
+
+            <section class="panel projects-panel">
+                <h2>🚀 Lansează Software</h2>
+                <p>Consumă liniile de cod strânse pentru a lansa aplicații care aduc bani pasivi!</p>
+                <div id="projects-list">
+                    </div>
+            </section>
+
+            <section class="panel system-panel">
+                <h2>🏢 Upgrade Birou</h2>
+                <div class="upgrades-list">
+                    <button onclick="buyUpgrade('pc')">Upgrade PC (Cod per click +1) <br> Cost: <span id="cost-upgrade-pc">50</span> $</button>
+                    <button onclick="buyUpgrade('office')">Mută Sediul (Deblochează proiecte mari) <br> Cost: <span id="cost-upgrade-office">1000</span> $</button>
+                </div>
+
+                <hr class="divider">
+
+                <h2>💾 Salvare & Progres</h2>
+                <div class="save-controls">
+                    <button class="btn-save" onclick="downloadSaveFile()">📥 Descarcă Salvare (Save File)</button>
+                    
+                    <input type="file" id="fileInput" style="display:none;" onchange="loadSaveFile(event)" accept=".json">
+                    <button class="btn-load" onclick="document.getElementById('fileInput').click()">📤 Încarcă Salvare</button>
+                </div>
+                <p class="version-tag">Versiune Joc: <span id="game-version">1.0</span></p>
+            </section>
+        </main>
+    </div>
+
+    <script src="saveSystem.js"></script>
+    <script src="game.js"></script>
+</body>
+</html>
